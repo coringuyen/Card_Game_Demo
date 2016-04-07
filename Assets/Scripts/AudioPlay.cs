@@ -13,38 +13,42 @@ public class AudioPlay
 
     static public void Shuffle()
     {
+        manager.volume = 1;
         manager.clip = shuffle;
         manager.Play();
     }
 
     static public void Win()
     {
-        manager.volume = 0.3f; 
         manager.clip = win;
+        manager.volume = 0.3f;
         manager.Play();
-        manager.volume = 1;
     }
 
     static public void CardFlip()
     {
+        manager.volume = 1;
         manager.clip = card_flip;
         manager.Play();
     }
 
     static public void HoverOnCard()
     {
+        manager.volume = 1;
         manager.clip = hover_on_card;
         manager.Play();
     }
 
     static public void DrawCard()
     {
+        manager.volume = 1;
         manager.clip = draw_card;
         manager.Play();
     }
 
     public void ButtonClick()
     {
+        manager.volume = 1;
         manager.clip = button_click;
         manager.Play();
     }
