@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD:Assets/Scripts/TranTest.cs
 public class TranTest: MonoBehaviour {
-=======
-public class Test : MonoBehaviour {
->>>>>>> matthew/master:Assets/Scripts/test.cs
     
 	void Start ()
     {
@@ -16,12 +12,12 @@ public class Test : MonoBehaviour {
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            
+            Tran.AudioPlay.Shuffle();
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            
+            Tran.AudioPlay.Win();
         }
     }
 }
