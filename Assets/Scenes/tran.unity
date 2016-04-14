@@ -457,7 +457,7 @@ Prefab:
     - target: {fileID: 11440716, guid: 44bcfbaff313efa48b5ea0110a0b8b73, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1245338438}
+      objectReference: {fileID: 1047544236}
     - target: {fileID: 11440716, guid: 44bcfbaff313efa48b5ea0110a0b8b73, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Button_Click
@@ -571,7 +571,7 @@ Prefab:
     - target: {fileID: 11440716, guid: 44bcfbaff313efa48b5ea0110a0b8b73, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1245338438}
+      objectReference: {fileID: 1047544236}
     - target: {fileID: 11440716, guid: 44bcfbaff313efa48b5ea0110a0b8b73, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Button_Click
@@ -1379,7 +1379,7 @@ Prefab:
     - target: {fileID: 11440716, guid: 44bcfbaff313efa48b5ea0110a0b8b73, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1245338438}
+      objectReference: {fileID: 1047544236}
     - target: {fileID: 11440716, guid: 44bcfbaff313efa48b5ea0110a0b8b73, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Button_Click
@@ -1888,6 +1888,7 @@ GameObject:
   - 222: {fileID: 739780370}
   - 114: {fileID: 739780369}
   - 114: {fileID: 739780368}
+  - 114: {fileID: 739780371}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1952,7 +1953,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245338438}
+      - m_Target: {fileID: 739780371}
         m_MethodName: Button_Click
         m_Mode: 1
         m_Arguments:
@@ -1998,6 +1999,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 739780366}
+--- !u!114 &739780371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 739780366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5867404f392a56e48995c7f3b357e910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 1245338437}
+  button_click: {fileID: 8300000, guid: 41f97ba4d7087f048a555b8f688c874b, type: 3}
 --- !u!1001 &817444131
 Prefab:
   m_ObjectHideFlags: 0
@@ -2242,7 +2256,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245338438}
+      - m_Target: {fileID: 1071472159}
         m_MethodName: Button_Click
         m_Mode: 1
         m_Arguments:
@@ -2507,7 +2521,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245338438}
+      - m_Target: {fileID: 1071472159}
         m_MethodName: Button_Click
         m_Mode: 1
         m_Arguments:
@@ -2886,6 +2900,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1047544234}
   - 114: {fileID: 1047544235}
+  - 114: {fileID: 1047544236}
   m_Layer: 5
   m_Name: UIPlayers
   m_TagString: Untagged
@@ -2937,6 +2952,19 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 4
+--- !u!114 &1047544236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1047544233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5867404f392a56e48995c7f3b357e910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 1245338437}
+  button_click: {fileID: 8300000, guid: 41f97ba4d7087f048a555b8f688c874b, type: 3}
 --- !u!1 &1071472156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,6 +2974,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1071472157}
   - 114: {fileID: 1071472158}
+  - 114: {fileID: 1071472159}
   m_Layer: 0
   m_Name: UIAbilities
   m_TagString: Untagged
@@ -2998,6 +3027,19 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 5
+--- !u!114 &1071472159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1071472156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5867404f392a56e48995c7f3b357e910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 1245338437}
+  button_click: {fileID: 8300000, guid: 41f97ba4d7087f048a555b8f688c874b, type: 3}
 --- !u!1 &1121683206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,7 +3196,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245338438}
+      - m_Target: {fileID: 1071472159}
         m_MethodName: Button_Click
         m_Mode: 1
         m_Arguments:
@@ -3314,7 +3356,7 @@ Prefab:
     - target: {fileID: 11440716, guid: 44bcfbaff313efa48b5ea0110a0b8b73, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1245338438}
+      objectReference: {fileID: 1047544236}
     - target: {fileID: 11440716, guid: 44bcfbaff313efa48b5ea0110a0b8b73, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Button_Click
@@ -3489,7 +3531,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1245338436}
-  - 114: {fileID: 1245338438}
   - 82: {fileID: 1245338437}
   m_Layer: 0
   m_Name: GUIAudio
@@ -3584,19 +3625,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1245338438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1245338435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5867404f392a56e48995c7f3b357e910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 1245338437}
-  button_click: {fileID: 8300000, guid: 41f97ba4d7087f048a555b8f688c874b, type: 3}
 --- !u!224 &1245677914 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22438098, guid: 44bcfbaff313efa48b5ea0110a0b8b73,
@@ -5954,7 +5982,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245338438}
+      - m_Target: {fileID: 1071472159}
         m_MethodName: Button_Click
         m_Mode: 1
         m_Arguments:
@@ -6281,7 +6309,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245338438}
+      - m_Target: {fileID: 1071472159}
         m_MethodName: Button_Click
         m_Mode: 1
         m_Arguments:
