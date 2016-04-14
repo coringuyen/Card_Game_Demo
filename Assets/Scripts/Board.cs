@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 0414
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Character;
+using System.Linq;
 
-namespace Matthew
+namespace Table
 {
 	///EXAMPLE: Transform mysteryPos = Board.Instance.MysteryCardStackPosition;
 	/// <summary>
@@ -20,10 +23,25 @@ namespace Matthew
 		{
 			get
 			{
-				if (m_instance == null)
-					m_instance = FindObjectOfType<Board>();
+				if (m_instance == null) {
+					m_instance = FindObjectOfType<Board> ();
+				}
+				
 				return m_instance;
 			}
+		}
+
+		private void Awake()
+		{
+			m_MysteryCardStack = FindObjectOfType <MysteryStack>().gameObject;
+			m_TreasureCardStack = FindObjectOfType <TreasureStack>().gameObject;
+			if (m_Players.Count < 1)
+				m_Players = new List<Player> ();
+			foreach (var v in FindObjectsOfType<Player>()) {
+				m_Players.Add (v);
+			}
+            m_Players = m_Players.OrderBy(x => x.name).ToList();
+
 		}
 		[SerializeField]
 		private GameObject m_MysteryCardStack;
@@ -31,7 +49,7 @@ namespace Matthew
 		private GameObject m_TreasureCardStack;
 
 		[SerializeField]
-		private List<GameObject> m_Players;
+		private List<Player> m_Players;
 		/// <summary>
 		/// Gets the mystery card stack position.
 		/// </summary>
