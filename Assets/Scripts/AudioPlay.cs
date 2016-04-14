@@ -23,7 +23,7 @@ namespace Tran
         static public void Win()
         {
             manager.clip = win;
-            manager.volume = 0.3f;
+            manager.volume = 0.5f;
             manager.Play();
         }
 
