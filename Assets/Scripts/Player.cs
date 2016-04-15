@@ -40,47 +40,7 @@ namespace Character
 				DrawCard<TreasureCard> ();
 			}
 		}
-
-	
-
-		// TESTING \/ TESTING \/ TESTING \/ TESTING \/ TESTING \/ TESTING \/ TESTING \/ TESTING \/ TESTING \/ //
-		//		void Update ()
-		//		{
-		//			Debug.DrawLine (transform.position, Vector3.zero);
-		//			if (Input.GetKey (KeyCode.Alpha1)) {
-		//				GainExperience (1);
-		//			}
-		//			if (Input.GetKey (KeyCode.Alpha2)) {
-		//				GainGold (150);
-		//			}
-		//			if (Input.GetKeyDown (KeyCode.Alpha3)) {
-		//				DrawCard<MysteryCard> ();
-		//
-		//			}
-		//			if (Input.GetKeyDown (KeyCode.Alpha4)) {
-		//				DrawCard<TreasureCard> ();
-		//
-		//			}
-		//		}
-
-
-		//		//ugh dont like this
-		//		[ContextMenu ("Get the Power")]
-		//		public void GetPower ()
-		//		{
-		//			int powerCounter = 0;
-		//			if (hand.Count < 1)
-		//				Debug.Log ("no cards in hand");
-		//			foreach (GameObject m in cards) {
-		//				Debug.Log ("power is " + powerCounter.ToString ());
-		//				if (m.GetComponent<MysteryCardMono> () != null)
-		//					powerCounter += m.GetComponent<MysteryCardMono> ().Power;
-		//				
-		//			}
-		//			Debug.Log ("power counter: " + powerCounter.ToString ());
-		//			 
-		//		}
-		//		// TESTING /\ TESTING /\ TESTING /\ TESTING /\ TESTING /\ TESTING /\ TESTING /\ TESTING /\ TESTING /\ //
+		
 
 		public int PlayCard ()
 		{
@@ -99,12 +59,23 @@ namespace Character
 			DrawCard<TreasureCard> ();
 		}
 
+        List<GameObject> dealerCards = new List<GameObject>();
+        public void TestPlayCard()
+        {
+            MysteryStack.Draw(dealerCards);
+            Quinton.FieldHandler.instance.AddBadDude(dealerCards[0]);
+            Quinton.FieldHandler.instance.AddGoodDude(cards[0]);
+
+            Discard(cards[0].name);
+        }
+
 		[SerializeField]		 
-		private List <GameObject> cards = new List<GameObject> ();
+		public List <GameObject> cards = new List<GameObject> ();
 		public List<ICard> hand = new List<ICard> ();
 		public static List<ICard> equipment = new List<ICard> ();
 
-		public bool DrawCard<T> () where T : class, new()
+       
+        public bool DrawCard<T> () where T : class, new()
 		{		
 			ICard c = (typeof(T) == typeof(MysteryCard) 
 				? (Func<List<GameObject>,ICard>)MysteryStack.Draw : TreasureStack.Draw) (cards);

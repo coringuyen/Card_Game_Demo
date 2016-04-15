@@ -3,43 +3,42 @@ using System.Collections;
 
 public class CardMovement : MonoBehaviour
 {
-    bool IsFlipped = false;
-
-    protected virtual IEnumerator CardFlip()
-    {
-        Quaternion TargetRotation = new Quaternion();
-        if (!IsFlipped)
-        {
-            TargetRotation = new Quaternion(0, 0, 1, 0);
-            Debug.Log(TargetRotation);
-        }
-        else
-        {
-            TargetRotation = new Quaternion(0, 0, 0, 0);
-            Debug.Log(TargetRotation);
-            Debug.Log(transform.rotation);
-        }
-        while (transform.rotation.z != TargetRotation.z && transform.rotation.w != TargetRotation.w)
-        {
-            Debug.Log(transform.rotation);
-            Quaternion rotation = transform.rotation;
-            rotation.z += Time.deltaTime * 1;
-            transform.rotation = rotation;
-            if (transform.rotation.z >= .8 && transform.rotation.w <= .4)
-                transform.rotation = TargetRotation;
-            yield return null;
-        }
-        IsFlipped = !IsFlipped;
-        StopCoroutine(CardFlip());
-    }
+    public bool IsFlipped = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            StartCoroutine(CardFlip());
-
-        }
-
+        
     }
+
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit, 30) && hit.collider.GetComponent<CardMovement>() != null)
+            {
+                if (IsFlipped == false)
+                {
+                    StartCoroutine(CardFlip(new Quaternion(0, 0, 1, 0)));
+                }
+                else if (IsFlipped == true)
+                {
+                    StartCoroutine(CardFlip(new Quaternion(0, 0, 0, 1)));
+                }
+            }
+        }
+    }
+
+    IEnumerator CardFlip(Quaternion targetRotation)
+    {
+        while((transform.rotation.z - targetRotation.z <= -0.001f && IsFlipped == false) || (transform.rotation.z - targetRotation.z >= 0.001f && IsFlipped == true))
+        {
+            transform.Rotate((Time.deltaTime * 200) * transform.forward);
+            yield return null;
+        }
+        transform.rotation = targetRotation;
+        IsFlipped = !IsFlipped;
+    }
+
 }
